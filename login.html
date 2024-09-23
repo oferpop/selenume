@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .login-container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .message {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Hardcoded credentials
+        const validUsername = 'ofer';
+        const validPassword = '123';
+        
+        const messageDiv = document.getElementById('message');
+        
+        if (username === validUsername && password === validPassword) {
+            messageDiv.textContent = 'Login successful!';
+            messageDiv.style.color = 'green';
+            // Redirect or perform further actions here
+        } else {
+            messageDiv.textContent = 'Invalid username or password.';
+            messageDiv.style.color = 'red';
+        }
+    });
+</script>
+
+</body>
+</html>
